@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:library_vacant_seat/responsive/desktop_scaffold.dart';
+import 'package:library_vacant_seat/responsive/mobile_scaffold.dart';
+import 'package:library_vacant_seat/responsive/responsive_layout.dart';
+import 'package:library_vacant_seat/responsive/tablet_scaffold.dart';
 
 void main() {
   runApp(const MainApp());
@@ -9,12 +13,14 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: Scaffold(
-        body: Center(
-          child: Text('Hello World!'),
-        ),
+    return MaterialApp( 
+      debugShowCheckedModeBanner: false,
+      home: ResponsiveLayout(
+      mobileScaffold: const MobileScaffold(),
+      tabletScaffold: const TabletScaffold(),
+      desktopScaffold: const DesktopScaffold(),
       ),
     );
   }
 }
+
